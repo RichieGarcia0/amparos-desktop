@@ -16,6 +16,10 @@ public class Amparos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        InicioSesion ventana = new InicioSesion();
+        ventana.setVisible(true);
+        ventana.setLocationRelativeTo(null);
+        ventana.setTitle("Inicio Sesión");
     }
     
 }
