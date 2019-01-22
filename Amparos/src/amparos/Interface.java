@@ -28,82 +28,65 @@ public class Interface extends javax.swing.JFrame {
     private void initComponents() {
 
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        archivoMenu = new javax.swing.JMenu();
+        imprimirMenuItem = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        cerrarSesionMenuItem = new javax.swing.JMenuItem();
+        editarMenu = new javax.swing.JMenu();
+        altaMenuItem = new javax.swing.JMenuItem();
+        ayudaMenu = new javax.swing.JMenu();
+        acercaMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Control de Amparos de Hemeroteca");
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("File");
+        archivoMenu.setMnemonic('f');
+        archivoMenu.setText("Archivo");
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
-        fileMenu.add(openMenuItem);
+        imprimirMenuItem.setMnemonic('o');
+        imprimirMenuItem.setText("Imprimir");
+        imprimirMenuItem.setEnabled(false);
+        archivoMenu.add(imprimirMenuItem);
+        archivoMenu.add(jSeparator1);
 
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
-        fileMenu.add(saveMenuItem);
-
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
-        fileMenu.add(saveAsMenuItem);
-
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        cerrarSesionMenuItem.setMnemonic('x');
+        cerrarSesionMenuItem.setText("Cerrar Sesión");
+        cerrarSesionMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
+                cerrarSesionMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(exitMenuItem);
+        archivoMenu.add(cerrarSesionMenuItem);
 
-        menuBar.add(fileMenu);
+        menuBar.add(archivoMenu);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
+        editarMenu.setMnemonic('e');
+        editarMenu.setText("Editar");
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
-
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
-
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
-
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
-
-        menuBar.add(editMenu);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Ayuda");
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("Acerca de Amparos de Hemeroteca");
-        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        altaMenuItem.setMnemonic('t');
+        altaMenuItem.setText("Agregar Amparo (Alta)");
+        altaMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aboutMenuItemActionPerformed(evt);
+                altaMenuItemActionPerformed(evt);
             }
         });
-        helpMenu.add(aboutMenuItem);
+        editarMenu.add(altaMenuItem);
 
-        menuBar.add(helpMenu);
+        menuBar.add(editarMenu);
+
+        ayudaMenu.setMnemonic('h');
+        ayudaMenu.setText("Ayuda");
+
+        acercaMenuItem.setMnemonic('a');
+        acercaMenuItem.setText("Acerca de Amparos de Hemeroteca");
+        acercaMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acercaMenuItemActionPerformed(evt);
+            }
+        });
+        ayudaMenu.add(acercaMenuItem);
+
+        menuBar.add(ayudaMenu);
 
         setJMenuBar(menuBar);
 
@@ -121,16 +104,26 @@ public class Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    private void cerrarSesionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionMenuItemActionPerformed
+        InicioSesion ventana = new InicioSesion();
+        ventana.setVisible(true);
+        ventana.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_cerrarSesionMenuItemActionPerformed
 
-    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
+    private void acercaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acercaMenuItemActionPerformed
         // TODO add your handling code here:
         Acerca ventana = new Acerca();
         ventana.setVisible(true);
-        ventana.setLocationRelativeTo(null);        
-    }//GEN-LAST:event_aboutMenuItemActionPerformed
+        ventana.setLocationRelativeTo(null);
+    }//GEN-LAST:event_acercaMenuItemActionPerformed
+
+    private void altaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaMenuItemActionPerformed
+        // TODO add your handling code here:
+        Alta ventana = new Alta();
+        ventana.setVisible(true);
+        ventana.setLocationRelativeTo(null);
+    }//GEN-LAST:event_altaMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,19 +161,15 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
-    private javax.swing.JMenu editMenu;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenuItem acercaMenuItem;
+    private javax.swing.JMenuItem altaMenuItem;
+    private javax.swing.JMenu archivoMenu;
+    private javax.swing.JMenu ayudaMenu;
+    private javax.swing.JMenuItem cerrarSesionMenuItem;
+    private javax.swing.JMenu editarMenu;
+    private javax.swing.JMenuItem imprimirMenuItem;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
-    private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }

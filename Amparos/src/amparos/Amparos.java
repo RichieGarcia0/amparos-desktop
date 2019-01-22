@@ -19,7 +19,6 @@ public class Amparos {
         InicioSesion ventana = new InicioSesion();
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
-        ventana.setTitle("Inicio Sesión");
     }
     
 }
