@@ -16,7 +16,8 @@ public class Amparos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        InicioSesion ventana = new InicioSesion();
+        //InicioSesion ventana = new InicioSesion();
+        Alta ventana = new Alta(); //Provisional
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(null);
     }
